@@ -1,0 +1,31 @@
+{
+  "name": "RealTimeVotingApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "method-override": "^2.3.7",
+    "validator": "^6.2.0",
+    "socket.io": "^1.7.2",
+    "mongoose": "^4.7.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CSENoni/Real-Time-Vote-Application.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CSENoni/Real-Time-Vote-Application/issues"
+  },
+  "homepage": "https://github.com/CSENoni/Real-Time-Vote-Application#readme"
+}
