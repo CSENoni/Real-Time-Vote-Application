@@ -1,0 +1,31 @@
+<% include ../partials/header.ejs %>
+
+<div id="chart" class="container">
+    <canvas id="myChart" width="100" height="100"></canvas>
+</div>
+<a href="/">Back</a>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script>
+    var socket = io();
+    var ctx = document.getElementById("myChart");
+    var obj = {
+        type: 'horizontalBar',
+        data: {
+            labels: <%- JSON.stringify(poll['label']) %>,
+            datasets: [{
+                label: 'Number of Votes',
+                data: <%- JSON.stringify(poll['data']) %>,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)'
+            }]
+        }
+    }
+    
+    socket.emit('send chart', obj);   
+    
+    socket.on('show chart', function(reObj){
+        var myChart = new Chart(ctx, reObj);
+    });
+</script>
+<% include ../partials/footer.ejs %>

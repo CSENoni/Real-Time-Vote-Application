@@ -1,0 +1,21 @@
+<% include ./partials/header.ejs %>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Real Time Vote Application</h1>
+        <p>A simple voting app for you to host and get the votes from other people</p>
+        <a href="./new"><button class="btn btn-lg btn-primary">Create Poll</button></a>
+    </div>
+    
+    <% polls.forEach(function(poll){ %>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <!-- Add /edit to the path to test the real time process and comment a line below -->
+                <a href="/<%= poll["_id"] %>"><h1><%= poll["title"] %></h1></a>
+                <p><%= poll["description"] %></p>
+            </div>
+        </div>                
+    <% }); %>
+</div>
+
+<% include ./partials/footer.ejs %>

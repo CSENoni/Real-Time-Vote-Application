@@ -1,0 +1,25 @@
+<% include ../partials/header.ejs %>
+
+<div class="container">
+    <div class="container">
+        <form action="/<%= poll['_id'] %>?_method=PUT" method="POST">
+            <fieldset class="form-group">
+                <h1>Select 1 option:</h1>
+                <% var labels = poll['label'];  %>
+                <% for(var i = 0; i < labels.length; i++) { %>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="options" id="op<%= i; %>" value="<%= i; %>">
+                                <%= labels[i] %> 
+                            </label>
+                        </div>
+                <% } %>
+            </fieldset>
+            <input type="hidden" name="data" id="data" value="<%= JSON.stringify(poll['data']) %>">
+            <a href="/">Back</a>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+<% include ../partials/footer.ejs %>
